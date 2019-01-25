@@ -1,6 +1,6 @@
 api_version: 1
-# TODO: set PHP version
-# php_version: 7.0
+php_version: 7.0
+drush_version: 8
 
 protected_web_paths:
   - /CHANGELOG.txt
