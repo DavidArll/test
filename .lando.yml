@@ -1,0 +1,6 @@
+name: batdp
+recipe: pantheon
+config:
+  framework: drupal
+  site: batdp
+  id: b6b1938a-97a1-497d-bc93-163369c8100e

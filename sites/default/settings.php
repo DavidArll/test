@@ -19,3 +19,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
   }
 }
 
+# Provide universal absolute path to the installation.
+// if (isset($_ENV['HOME'])) {
+//   $conf['simplesamlphp_auth_installdir'] = $_ENV['HOME'] .'/code/sites/all/libraries/simplesamlphp';
+// }

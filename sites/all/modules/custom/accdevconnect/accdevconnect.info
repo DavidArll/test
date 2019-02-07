@@ -1,0 +1,3 @@
+name = Accenture Devconnect
+description = This module extends Devconnect module functionality
+core = 7.x
