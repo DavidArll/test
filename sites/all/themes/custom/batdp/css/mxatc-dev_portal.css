@@ -205,7 +205,7 @@ body a {
 .slider-line {
   display: block;
   background: #00530A;
-  height: 25px;
+  /*height: 25px;*/
 }
 .navbar-inverse .navbar-toggle, .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:active, .navbar-default .navbar-toggle:focus, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, header.navbar.navbar-nav > .open > a, header.navbar.navbar-nav > .open > a:hover, header.navbar.navbar-nav > .open > a:focus, .navbar.navbar-nav > .active > a, .navbar.navbar-nav > .active > a:hover, .navbar.navbar-nav > .active > a:focus, .navbar .nav > li > a:hover, .navbar .nav > li > a.active, .navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus{
     background-color: #F5F5F5;
@@ -243,11 +243,13 @@ body a {
 body header.navbar .nav > li > a {
     padding-top:12px;
 }
-.last .expanded .leaf .dropdown>.dropdown-menu{
-    background: black;
+li.last.expanded.leaf.dropdown>.dropdown-menu, li.last.expanded.leaf.dropdown>.dropdown-menu:hover{
+    background: #B9C400;
 }
-a.panel-smartdocs:hover,
-a.panel-smartdocs:focus {
+.dropdown-menu>li>a{
+    color: #FFF;
+}
+a.panel-smartdocs:hover, a.panel-smartdocs:focus {
   text-decoration: none;
 }
 
@@ -1614,7 +1616,7 @@ span.field-item.even.label.label-default.keyword-label a:hover {
 }
 
 body header.navbar .nav .active > a, body .navbar .nav .active > a:focus, .navbar.navbar-fixed-top #main-menu li a:focus {
-    background-color:#00D700;
+   /* background-color:#00D700;*/
 }
 .card {
   background: #fff;
