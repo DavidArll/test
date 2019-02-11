@@ -397,7 +397,7 @@ a.logo img{
   margin: 20px 0;
   font-family: 'OpenSans-Semibold';
   font-weight: inherit;
-  color: #000;
+  color: #B9C400;
 }
 
 .view.view-smartdocs-models.view-id-smartdocs_models.view-display-id-page .view-filters form #edit-tid-wrapper label:first-child:hover {
@@ -407,7 +407,7 @@ a.logo img{
 .view.view-smartdocs-models.view-id-smartdocs_models.view-display-id-page .view-filters form #edit-tid-wrapper label,
 .view.view-devconnect-blog.view-id-devconnect_blog.view-display-id-page .view-filters form #edit-tid-wrapper label {
   width: 80%;
-  color: #fff;
+  color: #000;
 }
 
 .view.view-smartdocs-models.view-id-smartdocs_models.view-display-id-page .view-filters form #edit-tid-wrapper input[type="checkbox"] {
@@ -680,7 +680,7 @@ body.admin-menu .page-header-content {
 }
 
 .pg-footer-secondary {
-  background-color: #5A5A5A;
+  background-color: #FFF;
   display: block;
   font-size: inherit;
   margin: 0 !important;
