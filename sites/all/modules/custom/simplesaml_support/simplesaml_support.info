@@ -1,0 +1,4 @@
+name = Simple Saml Auth Support
+description = This module extends the features of the simplesamlphp_auth module to make it work with the Apigee developer portal
+core = 7.x
+dependencies[] = simplesamlphp_auth

@@ -1,0 +1,281 @@
+<?php
+
+use Apigee\Util\OrgConfig;
+
+/**
+ * Http request
+ */
+function _accdevconnect_developer_apps_http_request($url, $token, $basic = "")
+{
+
+  $headers = array(
+    "Accept: application/json",
+    "Authorization: Bearer {$token}"
+  );
+
+  $ch = curl_init($url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+  if (!empty($token)) {
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+  } else if(!empty($basic)) {
+    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+		curl_setopt($ch, CURLOPT_USERPWD, $basic);
+  }
+
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLINFO_HEADER_OUT, 1);
+  curl_setopt($ch, CURLOPT_HEADER, 0);
+
+  $raw_data = curl_exec($ch);
+  $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  curl_close($ch);
+
+  return $raw_data;
+}
+
+function _accdevconnect_developer_apps_call_endpoint($endpoint)
+{
+  $config = devconnect_get_org_settings();
+
+  // Make sure timeout does not exceed 8 seconds, or failure ensues.
+  $timeout = 4;
+
+  // Merge in any HTTP options that may have been provided by implementors of
+  $http_options = array_key_exists('http_options', $config) ? $config['http_options'] : [];
+  $http_options['connect_timeout'] = $timeout;
+  $http_options['follow_location'] = FALSE;
+  $curl_options = array_key_exists('curl_options', $config) ? $config['curl_options'] : [];
+
+  $user_agent = 'DevConnect (SAML)';
+
+  module_load_include('php', 'devconnect', 'lib/EncryptedCredentialStorage');
+
+  $options = [
+    'http_options' => $http_options,
+    'curl_options' => $curl_options,
+    'user_agent' => $user_agent,
+    'referer' => url($_GET['q'], ['absolute' => TRUE]),
+    'credential_storage' => new Drupal\devconnect\EncryptedCredentialStorage(),
+  ];
+
+  if ($config['saml_enabled'] == 1 && !empty($config['saml']['endpoint'])  && !empty($config['saml']['key'])  && !empty($config['saml']['secret'])) {
+    $options['saml'] = $config['saml'];
+    $org_config = new OrgConfig($config['org'], $config['endpoint'], $config['user'], $config['pass'], $options);
+    $accessToken = $org_config->accessToken;
+    return _accdevconnect_developer_apps_http_request("{$config['endpoint']}/organizations/{$config['org']}/{$endpoint}", $accessToken);
+  } else {
+    return _accdevconnect_developer_apps_http_request("{$config['endpoint']}/organizations/{$config['org']}/{$endpoint}", null, "{$config['user']}:{$config['pass']}");
+  }
+
+}
+
+function _accdevconnect_developer_apps_get_proxy($api_proxy_name = "")
+{
+  return _accdevconnect_developer_apps_call_endpoint("/apis/{$api_proxy_name}");
+}
+
+function _accdevconnect_developer_apps_get_apiproducts($product_name = "")
+{
+  $endpoint = (!empty($product_name)) ? "/{$product_name}" : '?expand=true';
+  return _accdevconnect_developer_apps_call_endpoint('/apiproducts' . $endpoint);
+}
+
+function _accdevconnect_developer_apps_get_public_apiproducts()
+{
+  $result = _accdevconnect_developer_apps_get_apiproducts();
+  $products = json_decode($result, true);
+  $products = $products['apiProduct'];
+  $ret = [];
+
+  foreach ($products as $product) {
+    $prod = [
+      'displayName' => $product['displayName'],
+      'description' => $product['description'],
+      'proxies' => $product['proxies']
+    ];
+
+    if (isset($product['attributes']) && !empty($product['attributes'])) {
+      foreach ($product['attributes'] as $attr) {
+        if ($attr['name'] == 'access' && $attr['value'] == 'public') {
+          $ret[] = $prod;
+        }
+      }
+    } else if(in_array('sandbox', $product['environments'])) {
+      $ret[] = $prod;
+    }
+  }
+
+  return $ret;
+
+}
+
+function _accdevconnect_developer_apps_get_apiproduct($product_name)
+{
+  return _accdevconnect_developer_apps_get_apiproducts($product_name);
+}
+
+/**
+ * Implementation hook_menu()
+ */
+function accdevconnect_menu() {
+
+  $items['accdevconnect_autocomplete_callback'] = array(
+    'page callback' => 'accdevconnect_autocomplete_callback',
+    'type' => MENU_CALLBACK,
+    'access callback' => TRUE,
+  );
+
+  return $items;
+
+}
+
+function accdevconnect_autocomplete_by_api_callback($search) {
+  $list = array();
+  $ret = array();
+  $search2 = str_replace(" ", '_', $search);
+  $search = str_replace(" ", '', $search);
+
+  if (strlen($search) >= 3) {
+
+    $products = _accdevconnect_developer_apps_get_public_apiproducts();
+
+    foreach ($products as $product) {
+      foreach ($product['proxies'] as $proxy) {
+        if (preg_match('#'.$search.'#i', $proxy) || preg_match('#'.$search2.'#i', $proxy)) {
+          $pkey = str_replace(" ", '_', $product['displayName']);
+          $list["{$proxy}:{$pkey}"] = $product['displayName'];
+        }
+      }
+    }
+
+    if (!empty($list)) {
+      foreach ($list as $key => $prod) {
+        if (!isset($ret[$key])) {
+          list($px, $pd) = explode(":", $key);
+          $key = str_replace(" ", '_', $prod);
+          $ret[$key] = "<b style=\"color: #003daf;\">{$prod}</b>";
+        }
+      }
+
+      drupal_json_output($ret);
+    } else {
+      drupal_json_output(["<b style=\"color: #cc0000;\">Product not found.</b>"]);
+    }
+
+  } else {
+    drupal_json_output([]);
+  }
+
+}
+
+function accdevconnect_autocomplete_callback($search) {
+  $list = array();
+  $ret = array();
+  $search2 = str_replace(" ", '_', $search);
+
+  if (strlen($search) >= 3) {
+
+    $products = _accdevconnect_developer_apps_get_public_apiproducts();
+
+    foreach ($products as $product) {
+      if (preg_match('#'.$search.'#i', $product['displayName']) || preg_match('#'.$search2.'#i', $product['displayName'])) {
+        $key = str_replace(" ", '-', $product['displayName']);
+        $list[$key] = $product['displayName'];
+      }
+    }
+
+    if (!empty($list)) {
+      foreach ($list as $key => $prod) {
+        $ret[$key] = "<b style=\"color: #003daf;\">{$prod}</b>";
+      }
+
+      drupal_json_output($ret);
+    } else {
+      drupal_json_output([' ' => "<b style=\"color: #cc0000;\">Product not found.</b>"]);
+    }
+
+  } else {
+    drupal_json_output([]);
+  }
+
+}
+
+
+/**
+ * Implementation of hook_form_FORM_ID_edit_form_alter()
+ */
+function accdevconnect_form_devconnect_developer_apps_edit_form_alter(&$form, &$form_state, $form_id) {
+
+  $options = array();
+  $products = _accdevconnect_developer_apps_get_public_apiproducts();
+
+/*
+  $grid = '<h1>Products:</h1><hr />';
+  $grid .= '<div class="product-list">';
+  $grid .= '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
+  foreach ($products as $i => $product) {
+    $id = str_replace(['_',' '],'-', $product['displayName']);
+    $id = strtolower($id);
+    $in = ($i == 0) ? ' in' : '';
+    $selected = ($i == 0) ? ' product-selected' : '';
+
+     $grid .= '<div class="panel panel-default">';
+        $grid .= '<div class="panel-heading product-headline" role="tab" id="heading-'.$id.'">';
+           $grid .= '<h4 class="panel-title">';
+              $grid .= '<a role="button" data-toggle="collapse" onclick="selectProduct(this, \''.$id.'\');" aria-expanded="true" aria-controls="collapse-'.$id.'">';
+                 $grid .= '<span>'.$product['displayName'].'</span>';
+              $grid .= '</a>';
+              $grid .= '<button type="button" class="btn btn-lg btn-product" onclick="selectProduct(this, \''.$id.'\');">Select product <i class="glyphicon glyphicon-unchecked"></i></button>';
+              $grid .= '<div class="clearfix"></div>';
+           $grid .= '</h4>';
+
+        $grid .= '</div>';
+        $grid .= '<div class="product-content">'.$product['description'].'</div>';
+        $grid .= '<div id="collapse-'.$id.'" class="panel-products collapse'.$in.'" role="tabpanel" aria-labelledby="collapse-'.$id.'">';
+          $grid .= '<div id="box-'.$id.'" class="panel-body product-grid'.$selected.'">';
+            $grid .= '<h3>APIs:</h3>';
+            $grid .= '<ul>';
+              foreach ($product['proxies'] as $proxy) {
+                $grid .= '<li>'.$proxy.'</li>';
+              }
+            $grid .= '</ul>';
+          $grid .= '</div>';
+        $grid .= '</div>';
+     $grid .= '</div>';
+   }
+  $grid .= '</div></div><hr />';
+*/
+  $grid .= '<hr />';
+  $grid .= '<h1>Added Products</h1>';
+  $grid .= '<hr />';
+  $grid .= '<div id="added-products">';
+  $grid .= '</div>';
+
+  foreach ($products as $product) {
+    $id = str_replace(array(" ", "_"), '-', $product['displayName']);
+    $id = mb_strtolower($id);
+    $options["prod-{$product['displayName']}"] = $product['displayName']."<span id=\"desc-api-product-prod-{$id}\">".$product['description']."</span>";
+  }
+
+  $form['product_search'] = array(
+    '#weight' => 1,
+    '#type' => 'textfield',
+    '#title' => t("Search Product"),
+    '#suffix' => '<div id="product-loader" style="background: url(/misc/progress.gif); width: 35%; border-radius: 6px; display: none; height: 25px;"></div>',
+    '#autocomplete_path' => 'accdevconnect_autocomplete_callback'
+  );
+
+  $form['api_product'] = array(
+    '#weight' => 2,
+    '#type' => 'checkboxes',
+    '#options' => $options,
+  );
+
+  $form['product_list'] = array(
+    '#weight' => 3,
+    '#markup' => $grid
+  );
+
+}

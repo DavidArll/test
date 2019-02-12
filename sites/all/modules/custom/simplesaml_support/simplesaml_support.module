@@ -1,0 +1,137 @@
+<?php
+
+/**
+ * Implementation of hook_menu().
+ */
+function simplesaml_support_menu(){
+  $items['logout-successful'] = array(
+    'type' => MENU_CALLBACK,
+    'title' => t("Logout successful"),
+    'page callback' => 'simplesaml_support_logout_page',
+    'access callback' => 'user_is_anonymous'
+  );
+
+  return $items;
+}
+
+
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function simplesaml_support_form_alter(&$form, &$form_state, $form_id) {
+
+  switch ($form_id) {
+    case 'simplesamlphp_auth_settings':
+      //add additional fields to the simplesamlphp settings form to map to the saml attributes which are required for the apigee developer portal.
+      $form['simplesamlphp_auth_grp_user']['simplesamlphp_auth_fname'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Which attribute from simpleSAMLphp should be used as first name for the user'),
+        '#default_value' => variable_get('simplesamlphp_auth_fname', 'eduPersonPrincipalFName'),
+        '#description' => t('Example: <i>eduPersonPrincipalFName</i>.'),
+        '#required' => TRUE,
+      );
+      $form['simplesamlphp_auth_grp_user']['simplesamlphp_auth_lname'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Which attribute from simpleSAMLphp should be used as last name for the user'),
+        '#default_value' => variable_get('simplesamlphp_auth_lname', 'eduPersonPrincipalLName'),
+        '#description' => t('Example: <i>eduPersonPrincipalFName</i>.'),
+        '#required' => TRUE,
+      );
+      break;
+  }
+}
+
+/**
+ * Implementation of hook_user_presave().
+ */
+function simplesaml_support_user_presave(&$edit, $account, $category) {
+  global $_simplesamlphp_auth_as;
+  global $_simplesamlphp_auth_saml_attributes;
+
+  if (!_simplesamlphp_auth_isEnabled()) {
+    // Exit without initializing.
+    return;
+  }
+  //populate the email, first name and the last name in the $edit array so that devconnect_user_presave hook executes without any exceptions.
+  if($account->is_new){
+  $edit['mail'] = _simplesamlphp_auth_get_mail();
+  $edit['field_first_name'][LANGUAGE_NONE][0]['value'] = _simplesaml_support_get_fname();
+  $edit['field_last_name'][LANGUAGE_NONE][0]['value'] = _simplesaml_support_get_lname();
+  }
+
+}
+
+/**
+ * Function to fetch the first name from the saml assertion.
+ * @see simplesamlphp_auth.module
+ */
+function _simplesaml_support_get_fname() {
+  global $_simplesamlphp_auth_as;
+  global $_simplesamlphp_auth_saml_attributes;
+  $first_name = '';
+  // Check if valid local session exists..
+  if ($_simplesamlphp_auth_as->isAuthenticated()) {
+    if (isset($_simplesamlphp_auth_saml_attributes[variable_get('simplesamlphp_auth_fname', 'eduPersonPrincipalFName')])) {
+      $first_name = $_simplesamlphp_auth_saml_attributes[variable_get('simplesamlphp_auth_fname', 'eduPersonPrincipalFName')][0];
+    }
+    else {
+      throw new Exception(t('Error in simplesaml_support.module: No valid first name attribute set.'));
+    }
+  }
+
+  return $first_name;
+}
+
+/**
+ * Function to fetch the last name from the saml assertion
+ * @see simplesamlphp_auth.module
+ */
+function _simplesaml_support_get_lname() {
+  global $_simplesamlphp_auth_as;
+  global $_simplesamlphp_auth_saml_attributes;
+  $last_name = '';
+  // Check if valid local session exists..
+  if ($_simplesamlphp_auth_as->isAuthenticated()) {
+    if (isset($_simplesamlphp_auth_saml_attributes[variable_get('simplesamlphp_auth_lname', 'eduPersonPrincipalLName')])) {
+      $last_name = $_simplesamlphp_auth_saml_attributes[variable_get('simplesamlphp_auth_lname', 'eduPersonPrincipalLName')][0];
+    }
+    else {
+      throw new Exception(t('Error in simplesaml_support.module: No valid last name attribute set.'));
+    }
+  }
+
+  return $last_name;
+}
+
+/**
+ * Implementation of hook_module_implements_alter().
+ */
+function simplesaml_support_module_implements_alter(&$implementations, $hook) {
+  //Alter the implementation of hook_user_presave() so that our module's implementation executes before the devconnect_users module's implementation
+  // and gets all the values that are required for the developer registration so that devconnect_user module's implementation has all the values.
+  //else the devconnect_user module will throw an exxception.
+  if ($hook == 'user_presave') {
+    $module = 'simplesaml_support';
+    $group = array($module => $implementations[$module]);
+    unset($implementations[$module]);
+    $implementations = $group + $implementations;
+  }
+}
+
+/**
+ * Page callback for the logout page
+ * @return string
+ */
+function simplesaml_support_logout_page(){
+
+  $output = '<div class="logout-message">
+<div class="logout-message-title">
+<h4>You have been logged out successfully..</h4>
+</div>
+
+<div class="logout-links"><a class="btn btn-default" href="/saml_login">Login Again</a></div>
+</div>';
+
+  return $output;
+}
