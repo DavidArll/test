@@ -14,6 +14,9 @@ body a {
 section{
   background-color: #F5F5F5;
 }
+#block-block-1{
+  background-color:#FFF;
+}
 #block-block-9{
   background-color:transparent;
   /*To be modified*/
@@ -246,11 +249,36 @@ body header.navbar .nav > li > a {
 li.last.expanded.leaf.dropdown>.dropdown-menu, li.last.expanded.leaf.dropdown>.dropdown-menu:hover{
     background: #B9C400;
 }
+li.last.expanded.leaf.dropdown/*.open*/>.dropdown-menu{
+    right: 0;
+    left: auto;
+    display: flex;
+    float: left;
+    width: 100vw;
+    position: absolute;
+    padding: 0 1000em;
+    margin: 0 calc(-1000em + 35vw);
+    border: none;
+    text-align: center;
+}
+#navbar .nav>li.last.expanded.leaf.dropdown.open, #navbar .nav>li.last.expanded.leaf.dropdown.open>a{
+    background-color:#B9C400;
+    color:white;
+}
+li.last.expanded.leaf.dropdown.open>ul.dropdown-menu li.leaf{
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
 li.last.expanded.leaf.dropdown>a>.caret{
     display: none;
 }
 li.last.expanded.leaf.dropdown>.dropdown-menu>li>a{
     color: #FFF;
+}
+li.last.expanded.leaf.dropdown>.dropdown-menu>li>a:hover{
+    text-decoration:underline;
+    background-color: #B9C400;
 }
 a.panel-smartdocs:hover, a.panel-smartdocs:focus {
   text-decoration: none;
@@ -686,13 +714,19 @@ body.admin-menu .page-header-content {
 }
 
 .pg-footer-secondary {
-  background-color: #FFF;
+  background-color: #F5F5F5 ;
   display: block;
   font-size: inherit;
   margin: 0 !important;
   padding: 2em;
   position: relative;
   width: 100%;
+}
+#block-views-blog-home-block{
+  background-color: #F5F5F5;
+}
+div.pg-card.blog-content{
+    padding:0px;
 }
 
 .pg-footer-secondary h2.block-title {
