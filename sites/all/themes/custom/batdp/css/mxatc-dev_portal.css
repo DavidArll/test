@@ -186,7 +186,7 @@ body #push {
     margin: 0px 15px 0px 0px;
 }
 .full-menu>li{
-    font-size: 12pt;
+    font-size: 12px;
     text-transform: uppercase;
 }
 body a {
@@ -248,7 +248,7 @@ body header.navbar .nav > li > a {
 li.last.expanded.leaf.dropdown>.dropdown-menu, li.last.expanded.leaf.dropdown>.dropdown-menu:hover{
     background: #B9C400;
 }
-li.last.expanded.leaf.dropdown/*.open*/>.dropdown-menu{
+li.last.expanded.leaf.dropdown.open>.dropdown-menu{
     right: 0;
     left: auto;
     display: flex;
