@@ -186,7 +186,7 @@ body #push {
     margin: 0px 15px 0px 0px;
 }
 .full-menu>li{
-    font-size: 12px;
+    font-size: 13px;
     text-transform: uppercase;
 }
 body a {
@@ -243,7 +243,7 @@ body a {
     background-color:#F5F5F5;
 }
 body header.navbar .nav > li > a {
-    padding-top:12px;
+    padding-top:14px;
 }
 li.last.expanded.leaf.dropdown>.dropdown-menu, li.last.expanded.leaf.dropdown>.dropdown-menu:hover{
     background: #B9C400;
@@ -256,13 +256,13 @@ li.last.expanded.leaf.dropdown.open>.dropdown-menu{
     width: 100vw;
     position: absolute;
     padding: 0 1000em;
-    margin: 0 calc(-1000em + 35vw);
+    margin: 0 calc(-1000em + 18vw);
     border: none;
     text-align: center;
 }
 #navbar .nav>li.last.expanded.leaf.dropdown.open, #navbar .nav>li.last.expanded.leaf.dropdown.open>a{
     background-color:#B9C400;
-    color:white;
+    color:#FFF;
 }
 li.last.expanded.leaf.dropdown.open>ul.dropdown-menu li.leaf{
     display: inline-block;
@@ -284,15 +284,50 @@ a.panel-smartdocs:hover, a.panel-smartdocs:focus {
 }
 
 .panel-title.pos-left {
-	word-break: break-all;
-	line-height: 1.3;
-	margin: 8px;
+  word-break: break-all;
+  line-height: 1.3;
+  margin: 8px;
 }
 .node-teaser .method_details .title a, .view .method_details .title a {
   word-break: break-all;
 }
 div.method_data div.title-description p {
   word-break: break-all;
+}
+.view-content>.views-bootstrap-grid-plugin-style>.row{
+  font-size: 12px;
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  color: #000;
+}
+.view-content>.views-bootstrap-grid-plugin-style>.row>div{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.view-content>.views-bootstrap-grid-plugin-style>.row>div>.views-field-title>.field-content{
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.view-content>.views-bootstrap-grid-plugin-style>.row>div>.views-field{
+  margin-bottom: 20px;
+}
+.view-content>.views-bootstrap-grid-plugin-style>.row>div>.views-field.views-field-field-icon-image>.field-content>.img-responsive{
+  margin: 0px auto;
+}
+.view-content>.views-bootstrap-grid-plugin-style>.row>div>.views-field-nothing{
+    margin: 0px auto;
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    right: 0px;
+}
+.view-content>.views-bootstrap-grid-plugin-style>.row>div>.views-field>.field-content>a{
+  color: #000;
+  font-weight: bold;
+}
+.col-xs-12, .col-sm-3, .col-md-3, .col-lg-3{
+  height:250px;
 }
 .panel-smartdocs h3 {
   margin: 0;
@@ -361,7 +396,7 @@ div.method_data div.title-description p {
   display: block;
   width: 100%;
   background: #fff;
-  height: 25px;
+  /*height: 25px;*/
 }
 .logo.navbar-btn.pull-left:hover{
   text-decoration:none;
@@ -731,6 +766,7 @@ div.pg-card.blog-content{
 .pg-footer-secondary h2.block-title {
   color: #000;
   font-family: 'OpenSans-Light', sans-serif;
+  text-align: center;
   margin: 10px 0;
 }
 
@@ -1037,9 +1073,9 @@ div.region-footer div.container ul li.divider-vertical {
 }
 
 .pg-footer .blog-inner .date {
-  font-size: 16px;
+  font-size: 10px;
   line-height: 33px;
-  color: #000;
+  color: gray;
 }
 
 .page-inner-bg {
@@ -1086,7 +1122,7 @@ div.region-footer div.container ul li.divider-vertical {
 }
 
 .api-category-pd {
-  padding: 20px 0 20px 0;
+  padding: 0px 0 20px 0;
 }
 
 .api-category {
@@ -1213,7 +1249,21 @@ div.region-footer div.container ul li.divider-vertical {
   .page-header-content .item,
   .page-header-content .carousel-inner {
     height: auto;
-  }
+    }
+}
+@media (min-width: 1001px) and (max-width: 1200px){
+  li.last.expanded.leaf.dropdown.open>.dropdown-menu{
+    right: 0;
+    left: auto;
+    display: flex;
+    float: left;
+    width: 100vw;
+    position: absolute;
+    padding: 0 1000em;
+    margin: 0 calc(-1000em + 30vw);
+    border: none;
+    text-align: center;
+}
 
 }
 
@@ -1265,6 +1315,13 @@ div.region-footer div.container ul li.divider-vertical {
     text-align: left;
     padding: 0;
   }
+  .full-menu>li{
+    font-size: 11px;
+    text-transform: uppercase;
+}
+   body header.navbar .nav > li > a {
+    padding-top: 18px;
+}
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .view-smartdocs-models .bef-checkboxes .form-item {
