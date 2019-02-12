@@ -246,7 +246,10 @@ body header.navbar .nav > li > a {
 li.last.expanded.leaf.dropdown>.dropdown-menu, li.last.expanded.leaf.dropdown>.dropdown-menu:hover{
     background: #B9C400;
 }
-.dropdown-menu>li>a{
+li.last.expanded.leaf.dropdown>a>.caret{
+    display: none;
+}
+li.last.expanded.leaf.dropdown>.dropdown-menu>li>a{
     color: #FFF;
 }
 a.panel-smartdocs:hover, a.panel-smartdocs:focus {
