@@ -768,6 +768,7 @@ div.pg-card.blog-content{
   font-family: 'OpenSans-Light', sans-serif;
   text-align: center;
   margin: 10px 0;
+  width: 100%
 }
 
 .pg-footer-secondary:after {
@@ -1335,6 +1336,11 @@ div.region-footer div.container ul li.divider-vertical {
 .view-content .blog-container {
   margin-bottom: 25px;
 }
+/*  width: 400px;
+}
+#block-views-blog-home-block>.view>.view-content{
+    margin: 0px auto;
+}*/
 /* .view-content .blog-image-img img{
     overflow: hidden;
     object-fit: cover;
