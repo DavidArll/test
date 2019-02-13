@@ -2233,7 +2233,7 @@ hr {
   max-width: 490px;
   margin: 0 auto 1em;
   padding: 1em;
-  border: 1px solid #cccccc;
+  /*border: 1px solid #cccccc;*/
   /*border-radius: 6px;*/
   overflow: hidden;
 }
@@ -2946,8 +2946,7 @@ fieldset:nth-child(odd) {
 .pg-stepper li {
   counter-increment: li;
   position: relative;
-}
-/*
+}/*
 .pg-stepper li::before {
   background: url(../images/step1.png) no-repeat;
   background-size: contain;  
@@ -2998,7 +2997,7 @@ fieldset:nth-child(odd) {
 
 .pg-stepper .pg-stepper__title {
   display: block;
-  font-size:14pt;
+  font-size:12pt;
   font-family: "OpenSans-Regular";
   line-height: 1.2em;
   color: #000000;
@@ -3022,7 +3021,7 @@ fieldset:nth-child(odd) {
     position: relative;
     padding-left: 80px;
   }
-  .pg-stepper li::before {
+    pg-stepper li::before {
     left: 45px;
     text-align: center;
     top: 0px;
@@ -3041,7 +3040,7 @@ fieldset:nth-child(odd) {
   .step-img {
     margin: 0;
     position: absolute;
-    left: 0;
+    left: 40px;
   }
   .step-img img {
     height: 30px !important;
@@ -3078,7 +3077,7 @@ fieldset:nth-child(odd) {
   .pg-stepper li::after {
     background-color: #B9C400;
     content: '';
-    height: 25px;
+    height: 30px;
     left: 54px;
     position: absolute;
     top: 54%;
@@ -3124,7 +3123,7 @@ fieldset:nth-child(odd) {
   }
   .pg-stepper .pg-stepper__title {
     display: block;
-    padding: 15px 0 0 0;
+    padding: 14px 0 0 0;
   }
   .pg-stepper li .step-img {
     top: 0;
@@ -3358,7 +3357,7 @@ body.pg-modal-open {
 
 .pg-footer-primary {
   margin: 0 !important;
-  min-height: 8em;
+  min-height: 4em;
   font-size: inherit;
   background-color: #003daf;
   display: block;
@@ -4501,9 +4500,9 @@ body.pg-modal-open {
 
 .master-stepper {
     padding-top: 40px;
-    padding-bottom:40px;
-    margin:20px;
-    border-radius: 6px;
+    padding-bottom:48px;
+    margin:40px;
+    /*border-radius: 6px;*/
 }
 
 a.add-app:hover {
