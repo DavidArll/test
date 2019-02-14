@@ -4548,7 +4548,6 @@ a.add-app:hover {
     padding: 1rem;
     line-height: 1.2em;
     font-size: 1.25rem;
-    font-weight: 600;
     text-align: center;
     text-decoration: none;
     letter-spacing: 1px;
@@ -4574,4 +4573,40 @@ a.add-app:hover {
 
 li.pg-stepper__step--active{
   cursor:pointer
+}
+@media (max-width: 39.9375em) and (min-width: 0em){
+.master-stepper {
+border: none;
+background-color: #ffffff;
+margin: 0!important;
+padding-top: 10px!important;
+padding-bottom: 10px!important;
+display: inline-block;
+}
+.step-img {
+margin: 0px;
+position: absolute;
+left: 35px;
+}
+.step-img img {
+height: 42px !important;/* solo hay que comentar */
+width: 42px !important;/* solo hay que comentar */
+/* esto significa que de preferencia hay que comentar lo que hay dentro */
+}
+.pg-stepper .pg-stepper__title, .pg-stepper .pg-stepper__subtitle {
+display: block;
+line-height: 3em;
+}
+.pg-stepper .pg-stepper__title, .pg-stepper .pg-stepper__subtitle {
+font-size: 11pt;
+}
+.pg-stepper li::after {
+background-color: #B9C400;
+content: '';
+height: 30px;
+left: 56px;
+position: absolute;
+top: 54%;
+width: 1px;
+}
 }
