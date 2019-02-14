@@ -3050,7 +3050,7 @@ fieldset:nth-child(odd) {
 
 
 .master-stepper {
-    border: solid 1px #ccc;
+    border: 0;
     background-color: #fff;
     padding-top: 15px !important;
     margin: 0px !important;
@@ -4574,6 +4574,9 @@ a.add-app:hover {
 li.pg-stepper__step--active{
   cursor:pointer
 }
+/* Esto va en el uxdl */
+ 
+/* -RESPONSIVE STEPS- */
 @media (max-width: 39.9375em) and (min-width: 0em){
 .master-stepper {
 border: none;
@@ -4588,19 +4591,19 @@ margin: 0px;
 position: absolute;
 left: 35px;
 }
-.step-img img {
-height: 42px !important;/* solo hay que comentar */
-width: 42px !important;/* solo hay que comentar */
+.step-imgimg {
+height: 42px!important;/* solo hay que comentar */
+width: 42px!important;/* solo hay que comentar */
 /* esto significa que de preferencia hay que comentar lo que hay dentro */
 }
-.pg-stepper .pg-stepper__title, .pg-stepper .pg-stepper__subtitle {
+.pg-stepper.pg-stepper__title, .pg-stepper.pg-stepper__subtitle {
 display: block;
 line-height: 3em;
 }
-.pg-stepper .pg-stepper__title, .pg-stepper .pg-stepper__subtitle {
+.pg-stepper.pg-stepper__title, .pg-stepper.pg-stepper__subtitle {
 font-size: 11pt;
 }
-.pg-stepper li::after {
+.pg-stepperli::after {
 background-color: #B9C400;
 content: '';
 height: 30px;
