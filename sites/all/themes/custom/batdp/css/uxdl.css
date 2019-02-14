@@ -2997,7 +2997,7 @@ fieldset:nth-child(odd) {
 
 .pg-stepper .pg-stepper__title {
   display: block;
-  font-size:12pt;
+  font-size:14pt;
   font-family: "OpenSans-Regular";
   line-height: 1.2em;
   color: #000000;
@@ -3123,7 +3123,7 @@ fieldset:nth-child(odd) {
   }
   .pg-stepper .pg-stepper__title {
     display: block;
-    padding: 14px 0 0 0;
+    padding: 20px 0 0 0;
   }
   .pg-stepper li .step-img {
     top: 0;
@@ -3135,8 +3135,8 @@ fieldset:nth-child(odd) {
     z-index: 1;
   }
   .pg-stepper li .step-img img {
-    height: 70px;
-    width: 70px;
+    height: 90px;
+    width: 90px;
     margin: 0 auto;
   }
 }
@@ -3292,7 +3292,7 @@ body.pg-modal-open {
   display: block;
   font-size: inherit;
   margin: 0 !important;
-  padding: 2em;
+  /*padding: 2em;*/
   position: relative;
   width: 100%;
 }
@@ -4499,9 +4499,9 @@ body.pg-modal-open {
 } */
 
 .master-stepper {
-    padding-top: 40px;
-    padding-bottom:48px;
-    margin:40px;
+    padding-top: 40pt;
+    padding-bottom:48pt;
+    margin:40pt;
     /*border-radius: 6px;*/
 }
 
