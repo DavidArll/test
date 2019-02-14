@@ -148,9 +148,9 @@ body #push {
 /*.container{
     margin-top:10px;
 }*/
-#block-views-api-centre-for-enablement-block{
+/*#block-views-api-centre-for-enablement-block{
     height: 354px;
-}
+}*/
 #navbar .nav > li {
   font-family: 'OpenSans-Regular';
   background: #F5F5F5;
@@ -229,7 +229,7 @@ body a {
     text-decoration: none;
 }
 .nav>li>a{
-    height: 49px;
+    height: 52px;
     padding: 10px 14px;
 }
 .navbar .nav > .leaf > a.active{
@@ -318,7 +318,7 @@ div.method_data div.title-description p {
   font-weight: bold;
 }
 .view-content>.views-bootstrap-grid-plugin-style>.row>div>.views-field{
-  margin-bottom: 20px;
+  margin-bottom: 13px;
 }
 .view-content>.views-bootstrap-grid-plugin-style>.row>div>.views-field.views-field-field-icon-image>.field-content>.img-responsive{
   margin: 0px auto;
@@ -338,7 +338,7 @@ div.method_data div.title-description p {
   height:260px;
 } */
 .card-wmap {
-  height: 260px;
+  height: 234px;
 }
 .panel-smartdocs h3 {
   margin: 0;
@@ -729,7 +729,7 @@ body.admin-menu .page-header-content {
 .pg-footer {
   box-sizing: border-box;
   color: #ffffff;
-  font-family: "OpenSans-Semibold", sans-serif;
+  font-family: "OpenSans-regular", sans-serif;
   font-size: 10px;
   margin: 0;
   max-width: 100%;

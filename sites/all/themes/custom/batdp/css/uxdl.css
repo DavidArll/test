@@ -1458,13 +1458,13 @@ hr {
   display: inline-block;
   position: relative;
   margin: 0 1.25rem 1.25rem 0;
-  padding: 0.786em 3.572em;
+  padding: 0.786em 1.572em;
   line-height: 1.2em;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 100;
   text-align: center;
   text-decoration: none;
-  letter-spacing: 1px;
+  letter-spacing: 0px;
   color: #ffffff;
   border: 0;
   border-radius: 40px;
@@ -2999,7 +2999,7 @@ fieldset:nth-child(odd) {
   display: block;
   font-size:12pt;
   font-family: "OpenSans-Regular";
-  line-height: 1.9em;
+  line-height: 1.2em;
   color: #000000;
 }
 
