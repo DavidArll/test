@@ -2232,7 +2232,9 @@ ul.links.list-inline a {
   text-transform: uppercase;
 }
 @media only screen and (max-width: 420px){
-
+    .card-wmap{
+        min-height:250pt;
+    }
   .navbar-inverse .navbar-collapse,
   .navbar-inverse .navbar-form,
   .navbar-inverse .navbar-toggle,
@@ -2264,7 +2266,7 @@ ul.links.list-inline a {
 }
 
   .pg-stepper {
-    padding: 10px;
+    padding: 0px;
   }
 
   .pg-stepper li::after {
@@ -2340,9 +2342,9 @@ ul.links.list-inline a {
     left: -80px;
   }
     .pg-footer-secondary h2.block-title {
-    color: #fff;
-    font-family: 'OpenSans-Light', sans-serif;
-    font-size: 2rem;
+    color: #000;
+    font-family: 'OpenSans-regular', sans-serif;
+    font-size: 14pt;
   }
 }
 /* Resource detail */
@@ -2843,12 +2845,16 @@ background: #FFFFFF;
 height: auto!important;
 }
 @media only screen and (max-width: 420px){
-.master-stepper ol li .pg-stepper__title {
-padding-top: 5px;
-font-size: 11pt;
-}
+  .master-stepper ol li .pg-stepper__title {
+    padding-top: 5px;
+    font-size: 8pt;
+  }
   .view-header{
     display: none;     
+  }
+  .master-stepper ol li .step-img{
+    height: 20px;
+    width: 20px;
   }
 .pg-stepper li::after {
 background-color: #B9C400;
