@@ -101,8 +101,8 @@ list($root, $link_logical_platform) = explode('/', $_SERVER['REQUEST_URI']);
       <?php if ($logo): ?>
         <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
           <div class="logo-pg">
-            <img src="<?php echo $theme_path . '/logo.png'; ?>" alt="<?php print $site_name; ?>" height="57" width="80" />
-            <img src="<?php echo $theme_path . '/logo2.png'; ?>" class="logo2" alt="<?php print $site_name; ?>" height="54" width="80" />
+            <img src="<?php echo $theme_path . '/logo.png'; ?>" alt="<?php print $site_name; ?>" height="57" width="95" />
+            <img src="<?php echo $theme_path . '/logo2.png'; ?>" class="logo2" alt="<?php print $site_name; ?>" height="54" width="95" />
           </div>            
         </a>
       <?php endif; ?>
