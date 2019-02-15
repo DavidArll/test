@@ -422,7 +422,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  /*text-decoration: underline;*/
   color:#00530A;
 }
 
@@ -3043,8 +3043,8 @@ fieldset:nth-child(odd) {
     left: 40px;
   }
   .step-img img {
-    height: 30px !important;
-    width: 30px !important;
+    height: 20px !important;
+    width: 20px !important;
    
   }
 
@@ -3123,10 +3123,10 @@ fieldset:nth-child(odd) {
   }
   .pg-stepper .pg-stepper__title {
     display: block;
-    padding: 20px 0 0 0;
+    padding: 48px 0 0 0;
   }
   .pg-stepper li .step-img {
-    top: 0;
+    top: -16px;
     position: absolute;
     text-align: center;
     display: block;
@@ -3135,8 +3135,8 @@ fieldset:nth-child(odd) {
     z-index: 1;
   }
   .pg-stepper li .step-img img {
-    height: 90px;
-    width: 90px;
+    height: 100px;
+    width: 100px;
     margin: 0 auto;
   }
 }
