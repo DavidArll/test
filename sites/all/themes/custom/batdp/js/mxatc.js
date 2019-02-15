@@ -151,7 +151,7 @@ function searchProduct(title) {
         _scrollUp = true;
         _scrollDown = false;
         //$(".logo-pg > img").stop().animate({width: 59, height: 48, left: 40, top: -12}, 200);
-        //$(".top-menu").stop().animate({height: 0}, 200);
+        $(".top-menu").stop().animate({height: 0}, 200);
         $('#navbar').addClass('sticky');
       }
 
@@ -161,8 +161,8 @@ function searchProduct(title) {
         _scrollUp = false;
         _scrollDown = true;
        // $(".logo-pg > img").stop().animate({width: 59, height: 48, left: 0, top: -12}, 200);
-       // $(".top-menu").stop().animate({height: 25}, 200);
-       // $('#navbar').removeClass('sticky');
+        $(".top-menu").stop().animate({height: 52pt}, 200);
+        $('#navbar').removeClass('sticky');
       }
     }
   });

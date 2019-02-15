@@ -28,10 +28,10 @@ body.admin-menu.adminimal-menu:before {
   height: 0;
 }
 body.admin-menu #navbar {
-  top: 0px;
+  top: 29px;
 }
 body.admin-menu #navbar.sticky {
-  top: 0;
+  top: 0px;
 }
 body.admin-menu.adminimal-menu {
   padding-top: 30px !important;
@@ -131,7 +131,7 @@ body #push {
 
 #navbar {
   position: fixed;
-  top: 0;
+  top: 0px;
   display: block;
   width: 100%;
   margin-bottom: 0;
@@ -270,6 +270,10 @@ body header.navbar .nav > li > a {
 li.last.expanded.leaf.dropdown>.dropdown-menu,
 li.last.expanded.leaf.dropdown>.dropdown-menu:hover{
     background: #B9C400;
+}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus{
+  color: #B9C400;
+  background-color: #F5F5F5;
 }
 li.last.expanded.leaf.dropdown.open>.dropdown-menu{
     right: 0;
@@ -505,7 +509,7 @@ li.last.expanded.leaf.dropdown.open>.dropdown-menu{
     width: 100vw;
     position: absolute;
     padding: 8px 1000em;
-    margin: 0 calc(-1000em + 20vw);
+    margin: 0 calc(-1000em + 20w);
     border: none;
     text-align: center;
     text-transform: uppercase;
@@ -799,13 +803,13 @@ html.js .resources div.contextual-links-wrapper {
 }
 
 .page-header-content {
-  margin-top: 74px !important;
+  margin-top: 51pt !important;
 }
 body.not-logged-in .page-header-content {
-  margin-top: 74px !important;
+  margin-top: 51pt !important;
 }
 body.admin-menu .page-header-content {
-  margin-top: 24px !important;
+  margin-top: 51pt !important;
 }
 
 .page-header-content .item-content {
