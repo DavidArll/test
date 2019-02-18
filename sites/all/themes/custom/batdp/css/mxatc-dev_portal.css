@@ -31,7 +31,7 @@ body.admin-menu #navbar {
   top: 29px;
 }
 body.admin-menu #navbar.sticky {
-  top: 29px;
+  top: 0px;
 }
 body.admin-menu.adminimal-menu {
   padding-top: 30px !important;
@@ -244,7 +244,7 @@ body a {
     color: #FFF;
     text-decoration: none;
 }
-.first.expanded.dropdown.>.dropdown-toggle>.dropdown-menu{
+.first.expanded.dropdown>.dropdown-toggle>.dropdown-menu{
     margin-top:-5px;
 }
 .nav>li>a{
@@ -492,6 +492,9 @@ img.logo2 {
   .container{
     width: 768px;
   }
+  /*body.admin-menu #navbar.sticky{
+    height: 29px;     
+  }*/
 }
 @media (min-width: 969px){
   .container {
@@ -541,7 +544,7 @@ li.last.expanded.leaf.dropdown.open>.dropdown-menu{
     margin-left: 37px;    
   }
 }
-@media (max-width: 768px){
+@media (max-width: 767px){
   .navbar-header{
     margin-top: 9px;    
   }
