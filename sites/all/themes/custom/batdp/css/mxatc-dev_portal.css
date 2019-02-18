@@ -4,14 +4,21 @@ This is the css file that will contain all the custom css styles that you will b
 
 body {
   font-family: 'OpenSans-Regular', sans-serif;
-  font-size: 14px;
+  font-size: 10pt;
   line-height: 1.6;
+  color: #000
 }
 body a {
   color: #00530A;
 }
 section{
   background-color: #F5F5F5;
+}
+.page-content>.main-container.container>.row_>section, #block-block-10{
+  background-color: #FFF;
+}
+.row_>section>.region.region-content>#block-system-main>.node{
+  background-color: #FFF;;
 }
 #block-block-1{
   background-color:#FFF;
@@ -95,14 +102,18 @@ body #push {
     box-shadow: none;
     margin-top: 29px;
     padding-top: 20px;
+    padding-bottom: 0px;
 }
 .page-header h1 {
   color: #000;
   font-size: 22pt;
 }
-.page-header .container{
+.page-node-197>.master-container>.page-header> .container, .page-node-198>.master-container>.page-header> .container, .page-node-199>.master-container>.page-header> .container, .page-node-200>.master-container>.page-header> .container{
   padding-bottom: 27px;
   border-bottom: 2px solid #B9C400;
+}
+.master-container>.page-content>.main-container, .master-container>.page-header>.container{
+  padding-left:0px;
 }
 
 #views-exposed-form-devconnect-blog-page > div, #views-exposed-form-resources-page > div {
@@ -119,7 +130,17 @@ body #push {
     vertical-align: top;
 }
 #edit-keys{
-  width: 100% !important;
+  width: 93% !important;
+  padding-right: 7px;
+}
+.glyphicon{
+  top:8px;
+  left: 9px;
+  font-size:12pt;
+  color: #B9C400;
+}
+form#views-exposed-form-resources-page{
+  background-color: #F5F5F5;
 }
 .views-exposed-widget .form-radios {
   margin: 12px 20px;
@@ -236,6 +257,10 @@ body a {
 }
 .username{
     text-transform: lowercase;
+}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{
+  background-color:#F5f5f5;
+  color: #B9C400;
 }
 .navbar-inverse .navbar-toggle, .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:active, .navbar-default .navbar-toggle:focus, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, header.navbar.navbar-nav > .open > a, header.navbar.navbar-nav > .open > a:hover, header.navbar.navbar-nav > .open > a:focus, .navbar.navbar-nav > .active > a, .navbar.navbar-nav > .active > a:hover, .navbar.navbar-nav > .active > a:focus, .navbar .nav > li > a:hover, .navbar .nav > li > a.active, .navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus{
     background-color: #F5F5F5;
@@ -389,7 +414,18 @@ div.method_data div.title-description p {
   margin: 0;
   color: #fff;
 }
-
+.field-item>div>.text-center>.img-inner{
+    display: inline-block;
+}
+.field-item>div>.text-center>.img-inner>img, .field-item>div>.text-center>.img-inner>span{
+    display:block;
+    padding: 10px 10px;
+}
+.field-item>div>.text-center>.img-inner>img{
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+}
 .panel-smartdocs h3:hover {
   text-decoration: underline;
 }
@@ -800,6 +836,10 @@ html.js .resources div.contextual-links-wrapper {
     max-width: 100%;
     overflow: hidden;;
 
+  }
+  .master-container>.page-content>.main-container, .master-container>.page-header>.container{
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 @media (min-width: 500px) and (max-width: 768px){
@@ -1251,6 +1291,7 @@ a.blog-link.blog-read-more.pg-button{
     padding-top: 10px;
     padding-left: 0px;
     padding-right: 0px;
+    color: #000;
 }
 .view-footer>.text-center{
     width:100%;
@@ -1260,6 +1301,10 @@ a.blog-link.blog-read-more.pg-button:hover{
     border-style: solid;
     border-width: 1px;
     border-color: #B9C400;
+    color: white;
+}
+#BackToHome{
+  bottom: -100px;
 }
 .pg-footer a.blog-link:hover {
   color: #fff;
@@ -1879,7 +1924,8 @@ body.node-type-article .region-sidebar-second.well {
 }
 
 .page-content{
-  background-color: #fdfdfd;
+  background-color: #FFF;
+  padding: 48pt 0 80px;
 }
 
 .row.teaser.node-body {
@@ -2145,6 +2191,34 @@ body header.navbar .nav .active > a, body .navbar .nav .active > a:focus, .navba
   color: #666;
   font-size:12px;
 }
+.categorization.list-inline{
+  float: right;
+  margin-right: 10px;
+}
+.categorization.list-inline>.rating, .categorization.list-inline>.cat{
+  background-color: #F5F5F5;
+  width: 90px;
+  border-radius: 11px;
+  color: #000;
+}
+.categorization.list-inline>.rating{
+  text-align: center;
+  padding: 0px;
+}
+.categorization.list-inline>.cat>.label-primary{
+  display: inline-block;
+  background: transparent;
+  border: none;
+  border-radius: none;
+  color: inherit;
+  box-shadow: none;
+  width: 88px;
+  font-family: 'OpenSans-Regular';
+  font-weight: 100;
+  font-size: 10pt;
+  margin-left: -2px;
+  
+}
 .card .description {
   clear: both;
   color: #444;
@@ -2156,7 +2230,7 @@ body header.navbar .nav .active > a, body .navbar .nav .active > a:focus, .navba
   overflow: hidden;
 }
 .card .card-footer {
-  background: #f5f5f5;
+  background: #FFF;
   padding: 4px 8px;
 }
 .card .card-footer ul {
@@ -3055,3 +3129,6 @@ line-height: 21px;
   margin: 15px auto;
 }
   /*END APIS list sidebar*/
+.pg-stepper .pg-stepper__title:hover{
+  color: #B9C400;
+}
