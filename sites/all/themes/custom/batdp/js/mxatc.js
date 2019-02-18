@@ -148,21 +148,21 @@ function searchProduct(title) {
       _scrollInit = true;
 
       if (_scrollDown) {
-       // _scrollUp = true;
-       // _scrollDown = false;
-        //$(".logo-pg > img").stop().animate({width: 59, height: 48, left: 40, top: -12}, 200);
-        //$(".top-menu").stop().animate({height: 0}, 200);
-        //$('#navbar').addClass('sticky');
+        _scrollUp = true;
+        _scrollDown = false;
+        //$(".logo-pg > img").stop().animate({width: 50, height: 50, left: 40, top: -12}, 200);
+        $(".top-menu").stop().animate({height: 0}, 200);
+        $('#navbar').addClass('sticky');
       }
 
     } else {
 
       if (_scrollUp && _scrollInit) {
-        //_scrollUp = false;
-       // _scrollDown = true;
-       // $(".logo-pg > img").stop().animate({width: 59, height: 48, left: 0, top: -12}, 200);
-        //$(".top-menu").stop().animate({height: 52pt}, 200);
-        //$('#navbar').removeClass('sticky');
+        _scrollUp = false;
+        _scrollDown = true;
+        //$(".logo-pg > img").stop().animate({width: 100, height: 100, left: 0, top: -35}, 200);
+        $(".top-menu").stop().animate({height: 0}, 200);
+        $('#navbar').removeClass('sticky');
       }
     }
   });
