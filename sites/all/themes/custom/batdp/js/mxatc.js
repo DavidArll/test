@@ -161,8 +161,8 @@ function searchProduct(title) {
         _scrollUp = false;
         _scrollDown = true;
        // $(".logo-pg > img").stop().animate({width: 59, height: 48, left: 0, top: -12}, 200);
-        $(".top-menu").stop().animate({height: 52pt}, 200);
-        $('#navbar').removeClass('sticky');
+        //$(".top-menu").stop().animate({height: 52pt}, 200);
+        //$('#navbar').removeClass('sticky');
       }
     }
   });

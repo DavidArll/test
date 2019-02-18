@@ -3085,8 +3085,61 @@ fieldset:nth-child(odd) {
 }
 
 }
-
-@media (min-width: 40em) {
+@media (min-width: 640px) {
+  .pg-stepper ol:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .pg-stepper ol {
+    margin: 0!important;
+    padding: 0;
+  }
+  .pg-stepper li {
+    display: inline-block;
+    /* float: left; */
+    /* height: 110px; */
+    margin: 0 1.5%;
+    text-align: center;
+    width: 16%;
+    position: relative;
+    padding-top: 70px;
+    vertical-align: top;
+    z-index: 1;
+  }
+  .pg-stepper li::before {
+    display: block;
+    margin: 0 auto;
+  }
+  .pg-stepper li::after {
+    background-color: #B9C400;
+    content: '';
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    top: 35px;
+    width: 100%;
+  }
+  .pg-stepper .pg-stepper__title {
+    display: block;
+    padding: 48px 0 0 0;
+  }
+  .pg-stepper li .step-img {
+    top: 0px;
+    position: absolute;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 0;
+    z-index: 1;
+  }
+  .pg-stepper li .step-img img {
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 768px) {
   .pg-stepper ol:after {
     content: "";
     display: block;
@@ -4590,6 +4643,7 @@ display: inline-block;
 margin: 0px;
 position: absolute;
 left: 35px;
+margin-left: 10px;
 }
 .step-imgimg {
 height: 42px!important;/* solo hay que comentar */
