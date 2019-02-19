@@ -11,7 +11,7 @@ body {
 body a {
   color: #00530A;
 }
-section{
+section, block-system-main{
   background-color: #F5F5F5;
 }
 .page-content>.main-container.container>.row_>section, #block-block-10{
@@ -51,11 +51,22 @@ body #push {
 .glyphicon-plus:before {
   color: inherit;
 }
-
+#block-block-4{
+  background-color: #FFF;
+} 
 .pos-left {
   float: left;
 }
-
+.tabs--primary{
+  height: 70px;
+  width: 50%;
+  background-color: #F5F5F5;
+  margin:0 auto;;
+}
+/*#block-system-main{
+  width: 50%;
+  margin: 0 auto;
+}*/
 .btn, .btn:hover, body .btn:hover, body .btn:focus, body .btn:active, body .btn.active, body .open .dropdown-toggle.btn {
   background-image: none;
 }
@@ -133,7 +144,10 @@ body #push {
   width: 93% !important;
   padding-right: 7px;
 }
-.glyphicon{
+.jumbotron{
+  text-align: center;
+}
+.glyphicon.glyphicon-search{
   top:8px;
   left: 9px;
   font-size:12pt;
@@ -1980,25 +1994,31 @@ div.arrow2 {
     transform: rotate(45deg);
     border: solid 4px #fff;
 }
-
-.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
-   font-size: 15px;
-    font-weight: 600;
-    padding: 15px 15px 15px 15px;
+.nav-pills>li>a{
+   Color: #000;
+   Background-color: #F5F5F5;
+   padding: 20px 24px;
+   font-size: 10pt;
+   font-weight: 100;
+}
+.nav-pills>li>a:hover{
+    background-color: #B9C400;
+    color: #FFF;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover{
+    font-size: 10pt;
     display: inline-block;
     position: relative;
-    margin: 0 1.25rem 1.25rem 0;
-    padding: 1rem;
+    padding: 25px 24px;
     line-height: 1.2em;
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 100;
     text-align: center;
     text-decoration: none;
     letter-spacing: 1px;
-    color: #ffffff;
+    color: #B9C400;
     border: 0;
-    border-radius: 40px;
-    background-color: #00530A !important;
+    border-radius: none;
+    background-color: #F5F5F5 !important;
     cursor: pointer;
     outline: none;
     transition: background-color 300ms ease-out, color 300ms ease-out, border-color 300ms ease-out;
@@ -2007,6 +2027,7 @@ div.arrow2 {
     -webkit-tap-highlight-color: transparent;
     overflow: hidden;
     transform: translate3d(0, 0, 0);
+    height: 100%;
 }
 
 input[type="checkbox"] {
