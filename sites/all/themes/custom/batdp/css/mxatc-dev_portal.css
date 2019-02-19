@@ -59,9 +59,8 @@ body #push {
 }
 .tabs--primary{
   height: 70px;
-  width: 50%;
   background-color: #F5F5F5;
-  margin:0 auto;;
+  margin:0 auto;*/
 }
 /*#block-system-main{
   width: 50%;
@@ -69,6 +68,22 @@ body #push {
 }*/
 .btn, .btn:hover, body .btn:hover, body .btn:focus, body .btn:active, body .btn.active, body .open .dropdown-toggle.btn {
   background-image: none;
+}
+#edit-submit--3, #edit-submit--4{
+  height: 32pt;
+  width: 110pt;
+  color: black;
+  background-color: transparent;
+  border: 1px solid #B9C400;
+  font-size:10pt;
+}
+#edit-submit--3:hover, #edit-submit--3:focus, #edit-submit--3:active, #edit-submit--4:hover,#edit-submit--4:active, #edit-submit--4:focus {
+  color: white;
+  background-color: #B9C400;
+  box-shadow: none;
+}
+.form-item>ul>li>a{
+    color: black;
 }
 /* margins and paddings fixes */
 .mt-0 {

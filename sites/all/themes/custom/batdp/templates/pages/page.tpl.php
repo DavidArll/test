@@ -165,9 +165,11 @@ list($root, $link_logical_platform) = explode('/', $_SERVER['REQUEST_URI']);
       </div>
     </section>
     <?php else: ?>
-    <?php if(!empty($page["inner-header"])):print render($page["inner_header"]);endif; ?>
-    <div class="page-inner-bg"><?php print render($page['help_header']); ?></div>
-    <div class="slider-line"></div>
+   <div class=“page-header-content”>
+   <?php if(!empty($page[“inner_header”])):
+     print render($page[“inner_header”]); endif;
+   ?>
+   </div>
     <?php /*if ($breadcrumb): ?>
     <div class="container" id="breadcrumb-navbar">
       <div class="row">
