@@ -166,8 +166,8 @@ list($root, $link_logical_platform) = explode('/', $_SERVER['REQUEST_URI']);
     </section>
     <?php else: ?>
    <div class=“page-header-content”>
-   <?php if(!empty($page[“inner_header”])):
-     print render($page[“inner_header”]); endif;
+   <?php if(!empty($page['inner_header'])):
+     print render($page['inner_header']); endif;
    ?>
    </div>
     <?php /*if ($breadcrumb): ?>
