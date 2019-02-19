@@ -25,6 +25,7 @@ regions[footer]         = 'Footer'
 regions[footer_bottom]  = 'Bottom'
 regions[page_top]       = 'Page top'
 regions[page_bottom]    = 'Page bottom'
+regions[inner_header]   = 'Inner header'
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Apigee Specific Regions
