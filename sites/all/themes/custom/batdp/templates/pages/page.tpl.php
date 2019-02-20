@@ -165,11 +165,11 @@ list($root, $link_logical_platform) = explode('/', $_SERVER['REQUEST_URI']);
       </div>
     </section>
     <?php else: ?>
-   <div class=“page-header-content”>
-   <?php if(!empty($page['inner_header'])):
-     print render($page['inner_header']); endif;
-   ?>
+   <?php if(!empty($page['inner_header'])): ?>
+        <div class="page-header-content">
+        <?php print render($page['inner_header']); ?>
    </div>
+     <?php endif; ?>
     <?php /*if ($breadcrumb): ?>
     <div class="container" id="breadcrumb-navbar">
       <div class="row">
