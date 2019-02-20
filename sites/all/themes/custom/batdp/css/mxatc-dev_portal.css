@@ -3168,3 +3168,10 @@ line-height: 21px;
 .pg-stepper .pg-stepper__title:hover{
   color: #B9C400;
 }
+.header-banner 
+.view-content, .header-banner 
+.carousel-inner .item{
+
+height: 145px!important;
+
+}
