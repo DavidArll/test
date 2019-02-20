@@ -154,6 +154,9 @@ body #push {
     color:#000;
    /* padding-top: 20px;*/
     vertical-align: top;
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
 }
 #edit-keys{
   width: 93% !important;
@@ -182,11 +185,13 @@ form#views-exposed-form-resources-page{
 }
 
 #edit-field-keywords-tid-wrapper label{
-    margin-left: 10px;
-    font-family: 'OpenSans-Semibold';
-    font-weight: normal;
+  margin-left: 10px;
+  font-family: 'OpenSans-Semibold';
+  font-weight: normal;
 }
-
+.form-item.form-item-filemime.form-type-radio.radio{
+  margin-bottom: 10pt;
+}
 #navbar {
   position: fixed;
   top: 0px;
@@ -442,18 +447,6 @@ div.method_data div.title-description p {
 .panel-smartdocs h3 {
   margin: 0;
   color: #fff;
-}
-.field-item>div>.text-center>.img-inner{
-    display: inline-block;
-}
-.field-item>div>.text-center>.img-inner>img, .field-item>div>.text-center>.img-inner>span{
-    display:block;
-    padding: 10px 10px;
-}
-.field-item>div>.text-center>.img-inner>img{
-  height: 150px;
-  width: 150px;
-  margin: 0 auto;
 }
 .panel-smartdocs h3:hover {
   text-decoration: underline;
@@ -883,11 +876,15 @@ html.js .resources div.contextual-links-wrapper {
 }
 
 .views-exposed-widgets > .views-exposed-widget > label {
-  font-size: 2rem;
+  font-size: 10pt;
+  text-transform: uppercase;
   color: #B9C400;
   font-family: 'OpenSans-Semibold';
   margin-left: 5px;
   font-weight: normal;
+}
+.form-item label.option{
+  font-size: 10pt;
 }
 .view-resources .views-exposed-widgets > .views-exposed-widget {
   /*clear: left;*/
@@ -962,6 +959,7 @@ body.admin-menu .page-header-content {
 
 .page-header-content .carousel-inner img {
   width: 100%;
+  min-height: 145px;
 }
 
 .carousel-indicators {
@@ -2211,6 +2209,13 @@ body header.navbar .nav .active > a, body .navbar .nav .active > a:focus, .navba
 }
 .card .card-heading a {
   color: #000;
+  font-size: 14pt;
+  text-transform: uppercase;
+}
+.card .card-heading a:hover, .card .card-heading a:focus{
+  color: #B9C400;
+  font-size: 14pt;
+  text-transform: uppercase;
 }
 .card .card-left {
   width: 64px;
@@ -2224,8 +2229,8 @@ body header.navbar .nav .active > a, body .navbar .nav .active > a:focus, .navba
 }
 .card .lang, .card .date {
   padding: 5px 8px;
-  color: #666;
-  font-size:12px;
+  color: gray;
+  font-size: 11pt;
 }
 .categorization.list-inline{
   float: right;
@@ -2240,6 +2245,9 @@ body header.navbar .nav .active > a, body .navbar .nav .active > a:focus, .navba
 .categorization.list-inline>.rating{
   text-align: center;
   padding: 0px;
+}
+.fivestar-static-item{
+  padding-top: 4px;
 }
 .categorization.list-inline>.cat>.label-primary{
   display: inline-block;
@@ -2257,9 +2265,9 @@ body header.navbar .nav .active > a, body .navbar .nav .active > a:focus, .navba
 }
 .card .description {
   clear: both;
-  color: #444;
+  color: #000;
   font-size: 13px;
-  padding: 8px;
+  padding: 10pt;
   border-top: 1px solid rgba(0,0,0,0.05);
   height: 80px;
   max-height: 80px;
@@ -2655,19 +2663,30 @@ body.node-type-resource .gdoc-field {
 }
 #block-views-resources-resource-detail .views-field > * {
   display: inline-block;
+  font-size:10pt;
 }
 #block-views-resources-resource-detail .views-field .views-label {
   font-family: 'OpenSans-Semibold';
   margin-right: 8px;
+  font-size: 10pt
 }
 #block-views-resources-resource-detail .views-field .label {
   padding: .5em .9em;
   border-radius: 8px;
-  background-color: #00530A;
+  background-color: #F5F5F5;
+  color: #000;
+  font-size: 10pt;
 }
 #block-views-resources-resource-detail .download-button .btn {
-  font-size: 16px;
-  background-color: #00D700 !important;
+  font-size: 12pt;
+  background-color: #FFF;
+  color: #000;
+  border: 1px solid #B9C400;
+}
+#block-views-resources-resource-detail .download-button .btn:hover, #block-views-resources-resource-detail .download-button .btn:active, #block-views-resources-resource-detail .download-button .btn:focus{
+  color: #FFF;
+  background-color: #B9C400;
+  box-shadow: none;
 }
 #block-views-resources-resource-detail .download-button .btn:before {
   font-family: "uxdlicons";
@@ -3170,7 +3189,8 @@ line-height: 21px;
 }
 .header-banner 
 .view-content, .header-banner 
-.carousel-inner .item{
+.carousel-inner .item, .header-banner 
+.carousel-inner {
 
 height: 145px!important;
 
