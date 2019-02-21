@@ -103,7 +103,9 @@ body #push {
   list-style: none;
   margin: 0 0 5px;
 }
-
+#block-devconnect-content-creation-menu-devconnect-content-creation-menu>hr{
+    display: none;
+}
 @media screen and (max-width:1024px){
   .slicknav_menu {
     display: block;
@@ -159,7 +161,7 @@ body #push {
     border: none;
 }
 #edit-keys{
-  width: 93% !important;
+  width: 89% !important;
   padding-right: 7px;
 }
 .jumbotron{
@@ -680,13 +682,15 @@ li.last.expanded.leaf.dropdown.open>.dropdown-menu{
 }
 .api-container {
   background: #fff;
-  border: solid 1px #ccc;
 }
-
+.views-exposed-widgets.clearfix{
+  padding-top: 37px;
+}
 .api-logical-platforms {
-  background: #fbfbfb;
+  background: #FFF;
   padding: 20px;
   min-height: 850px;
+  padding-top: 50px;
 }
 .api-logical-platforms > h1 {
   margin-bottom: 20px;
@@ -707,7 +711,7 @@ li.last.expanded.leaf.dropdown.open>.dropdown-menu{
 .view.view-devconnect-blog.view-id-devconnect_blog.view-display-id-page .view-filters,
 .view.view-resources.view-id-resources.view-display-id-page .view-filters {
   float: left;
-  width: 25%;
+  width: 22%;
 }
 
 .view.view-devconnect-blog.view-id-devconnect_blog.view-display-id-page .view-filters .views-exposed-widgets {
@@ -819,7 +823,7 @@ li.last.expanded.leaf.dropdown.open>.dropdown-menu{
 .view.view-smartdocs-models.view-id-smartdocs_models.view-display-id-page > .view-content,
 .view.view-devconnect-blog.view-id-devconnect_blog.view-display-id-page > .view-content, .view.view-resources.view-id-resources.view-display-id-page > .view-content, .view.view-display-id-page > .view-empty {
   float: left;
-  width: 75%;
+  width: 78%;
 }
 
 .view.view-smartdocs-models.view-id-smartdocs_models.view-display-id-page .view-content .col-sm-12 {
@@ -873,6 +877,11 @@ html.js .resources div.contextual-links-wrapper {
     float: none!important;
     margin-bottom: 0!important;
   }
+  #edit-keys-wrapper{
+  float: left;
+  margin: 0px 0px 0px 184px;
+  width: 46%;
+}
 }
 
 .views-exposed-widgets > .views-exposed-widget > label {
@@ -887,14 +896,13 @@ html.js .resources div.contextual-links-wrapper {
   font-size: 10pt;
 }
 .view-resources .views-exposed-widgets > .views-exposed-widget {
-  /*clear: left;*/
-  width: 97%;
+  clear: left;
 }
 #edit-keys-wrapper{
   float: none;
   margin: 0 auto;
+  width:97%
 }
-
 .api-page-container:after {
   content: "";
   clear: both;
@@ -1568,7 +1576,22 @@ a.blog-link.blog-read-more.pg-button:hover{
   font-size: 40px;
   float: left;
 }
-
+.row.blog-headline>.col-md-8{
+  padding-right: 0px;
+  font-size: 14pt;
+}
+.row.blog-headline>.col-md-8>h2>a{
+  font-size: 14pt;
+  font-weight: bold;
+}
+.row.blog-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.view-content .blog-inner .blog-read-more:hover,  .view-content .blog-inner .blog-read-more:focus, .view-content .blog-inner .blog-read-more:active{
+  background-color: #B9C400;
+  color: #FFF;
+}
 @media (max-width:767px){
   .api-category-container a.api-link {
     float: none;
@@ -1578,9 +1601,8 @@ a.blog-link.blog-read-more.pg-button:hover{
     margin: 0 3px;
   }
 }
-
 .row.blog-categories {
-    padding-top: 45px;
+    padding-top: 60px;
     padding-bottom: 8px;
     margin-left: auto;
 }
@@ -1817,7 +1839,7 @@ a.blog-link.blog-read-more.pg-button:hover{
 .view-content a.blog-read-more {
   /* float: right; */
   margin: 12px auto;
-  padding: 11px 0px;
+  padding: 11px 25px;
   display:inline-block;
 }
 
@@ -1841,7 +1863,14 @@ a.blog-link.blog-read-more.pg-button:hover{
 	color: #444;
 	min-height: 230px;
 }
-
+.view-content .blog-inner .blog-read-more {
+    float: right;
+    border: 1px solid #B9C400;
+    border-radius: 20px;
+    font-size: 12pt;
+    padding: 8px 25px;
+    margin-top: 65px;
+}
 .view-content .blog-content a {
   color: #000;
   width: 110pt;
@@ -1876,6 +1905,11 @@ a.blog-link.blog-read-more.pg-button:hover{
   font-size: 16px;
   line-height: 33px;
   color: #003daf;
+}
+.view-pd .blog-content .blog-inner p{
+  font-size: 10pt;
+  max-width: 450px;
+  margin-right: 0px;
 }
 .blog-date-secondary {
   font-size: 12px;
@@ -2266,9 +2300,8 @@ body header.navbar .nav .active > a, body .navbar .nav .active > a:focus, .navba
 .card .description {
   clear: both;
   color: #000;
-  font-size: 13px;
+  font-size: 10pt;
   padding: 10pt;
-  border-top: 1px solid rgba(0,0,0,0.05);
   height: 80px;
   max-height: 80px;
   overflow: hidden;
@@ -2759,10 +2792,13 @@ body.node-type-resource .gdoc-field {
 	color: #7f7f7f;
 }
 .view-resources .api-logical-platforms {
-	min-height: 300px;
+	min-height: 604px;
 }
-
-
+.navbar.navbar-default{
+  border: none;
+  box-shadow: none;
+  padding-top: 9px
+}
 /* end resource detail */
 
 /* comments */
