@@ -182,8 +182,9 @@ form#views-exposed-form-resources-page{
 }
 
 #edit-field-keywords-tid-wrapper {
-    font-size: 2.2rem;
+    font-size: 10pt;
     color: #003DAF;
+    width: 90%;
 }
 
 #edit-field-keywords-tid-wrapper label{
@@ -807,6 +808,8 @@ html.js .resources div.contextual-links-wrapper {
   margin-bottom: 0px;
   margin-top: 3px;
   margin-left: 10pt;
+  font-family: "OpenSans-Regular";
+  font-weight: 100;
 }
 .view-resources .views-exposed-widgets > .views-exposed-widget {
   clear: left;
@@ -1716,6 +1719,10 @@ a.blog-link.blog-read-more.pg-button:hover{
     display: inline-block;
     vertical-align: top;
   }
+  #edit-field-keywords-tid-wrapper{
+    width: 40%;
+    margin-left: 54px;
+  }
 
 }
 
@@ -2188,7 +2195,7 @@ body header.navbar .nav .active > a, body .navbar .nav .active > a:focus, .navba
 }
 .card .card-left i {
   line-height: 64px;
-  font-size: 40px;
+  font-size: 41px;
   width: 64px;
 }
 .card .lang, .card .date {
@@ -2260,25 +2267,39 @@ body header.navbar .nav .active > a, body .navbar .nav .active > a:focus, .navba
   display: none;
 }
 .card .icon.docx .fas::before, .card .icon.doc .fas::before {
-  content: "\f1c2";
+  background:url(../images/Word%20doc%20@2x.png) no-repeat center center;
+  background-size: 32px 42px;
 }
 .card .icon.pptx .fas::before, .card .icon.ppt .fas::before {
-  content: "\f1c4";
+  background:url(../images/Presentation%20@2x.png) no-repeat center center;
+  background-size: 32px 42px;
 }
 .card .icon.xlsx .fas::before, .card .icon.xls .fas::before {
-  content: "\f1c3";
+  background:url(../images/Spreadsheet%20@2x.png) no-repeat center center;
+  background-size: 32px 42px;
+}
+.card .icon.mp4 .fas::before, .card .icon.avi .fas::before {
+  background:url(../images/Video%20@2x.png) no-repeat center center;
+  background-size: 32px 42px;
+}
+.card .icon.pdf .fas::before{
+  background:url(../images/PDF@2x.png) no-repeat center center;
+  background-size: 32px 42px;
 }
 .fas::before {
   content: "\f1c1";
-  background-color: #B9C400;
-  color: #FFF;
-  border: 1px solid #B9C400;
+  background-color: transparent;
+  color: transparent;
+  border: none;
+  font-size:44px;
 }
-.card .icon.zip .fas::before, .card .icon.tar .fas::before, .card .icon.gz .fas::before, .card .icon.tar .fas::before {
+/*.card .icon.zip .fas::before, .card .icon.tar .fas::before, .card .icon.gz .fas::before, .card .icon.tar .fas::before {
   content: "\f1c6";
-}
+}*/
+/*Need a zip icon*/
 .card .icon.mp3 .fas::before, .card .icon.wav .fas::before, .card .icon.flac .fas::before {
-  content: "\f1c7";
+  background:url(../images/Audio%20@2x.png) no-repeat center center;
+  background-size: 32px 42px;
 }
 /*back to top*/
 #backtotop {
